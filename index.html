@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <meta property="og:type" content="Secret Message" />
-    <meta property="og:title" content="Mohammad❤️❤️❤️❤️❤️❤️ أرسلت لك رسالة مفاجئة. افتح هذا" />
+    <meta property="og:title" content="❤️❤️❤️❤️❤️❤️ أرسلت لك رسالة مفاجئة. افتح هذا" />
     <meta property="og:description" content="Secret Message" />
-    <meta property="og:site_name" content="Mohammad❤️❤️❤️❤️❤️❤️ أرسلت لك رسالة مفاجئة. افتح هذا" />
+    <meta property="og:site_name" content="❤️❤️❤️❤️❤️❤️ أرسلت لك رسالة مفاجئة. افتح هذا" />
     <meta property="og:image" content="https://foodaki.com/dz/img/ogr.jpg" /> 
-<title>Mohammad ❤️❤️❤️❤️❤️❤️ Mohammad</title>
+<title>❤️❤️❤️❤️❤️❤️</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   
 
@@ -63,7 +63,46 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="slide.js" type="text/javascript"></script>  
 <script type="text/javascript">
-$(document).ready(function() { $curtainopen = false; $(".rope").click(function(){ $(this).blur(); if ($curtainopen == false){ $(this).stop().animate({top: '-171%' }, {queue:false, duration:350, easing:'easeOutBounce'}); $(".leftcurtain").stop().animate({width:'1px'}, 2000 ); $(".rightcurtain").stop().animate({width:'1px'},2000 ); $curtainopen = true; }else{ $(this).stop().animate({top: '-40px' }, {queue:false, duration:350, easing:'easeOutBounce'}); document.write(''); $(".leftcurtain").stop().animate({width:'50%'}, 2000 ); $(".rightcurtain").stop().animate({width:'51%'}, 2000 ); $curtainopen = false; } return false; }); });
+$(document).ready(function() { 
+    $curtainopen = false; 
+    $(".rope").click(function(){ 
+        $(this).blur(); 
+        if ($curtainopen == false){ 
+            $(this).stop().animate({top: '-171%' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
+            $(".leftcurtain").stop().animate({width:'1px'}, 2000 ); 
+            $(".rightcurtain").stop().animate({width:'1px'},2000 ); 
+            $curtainopen = true; 
+        } else { 
+            $(this).stop().animate({top: '-40px' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
+            document.write(''); 
+            $(".leftcurtain").stop().animate({width:'50%'}, 2000 ); 
+            $(".rightcurtain").stop().animate({width:'51%'}, 2000 ); 
+            $curtainopen = false; 
+        } 
+        return false; 
+    }); 
+
+    // Function to handle name submission
+    $("#nameForm").submit(function(e) {
+        e.preventDefault();
+        var userName = $("#nameInput").val();
+        if (userName) {
+            // Update all instances of the name
+            $(".displayName").text(userName);
+            // Save to localStorage to persist across page refreshes
+            localStorage.setItem("userName", userName);
+            // Hide the form after submission
+            $(".enter-name").hide();
+        }
+    });
+
+    // Check if we already have a saved name
+    var savedName = localStorage.getItem("userName");
+    if (savedName) {
+        $(".displayName").text(savedName);
+        $(".enter-name").hide();
+    }
+});
 </script>
 <style type="text/css">
       *{
@@ -262,7 +301,9 @@ a.rope
 </div>
 </center>
 <br>
-<h1 id="username" style="font-family:SF Espresso Shack;">Mohammad ❤️❤️❤️❤️❤️❤️ Mohammad </h1>
+<h1 id="username" style="font-family:SF Espresso Shack;">
+<span class="displayName">Mohammad</span> ❤️❤️❤️❤️❤️❤️ <span class="displayName">Mohammad</span>
+</h1>
         
 
 <img src="img/ar-wis.png" width="50%" height="9%" style="animation: tada 4s infinite;"/><br><br>
@@ -308,15 +349,16 @@ a.rope
 </center>
 <br>
 
-😍<span id="show-name" style="color: red;">Mohammad ❤️❤️❤️❤️❤️❤️ Mohammad</span>😍
+😍<span id="show-name" style="color: red;" class="displayName">Mohammad</span>😍
 <br>
 
 
-<form method="POST" action="wish.php">
+<form id="nameForm" method="POST" action="javascript:void(0);">
 	<div class="enter-name">
-		<input class="animated pulse infinite" type="name" required="" maxlength="50" name="n" placeholder="👉 أدخل اسمك هنا...">
+		<input class="animated pulse infinite" type="name" required="" maxlength="50" id="nameInput" name="n" placeholder="👉 أدخل اسمك هنا...">
 		<button class="btn animated shake infinite" type="submit"><span></span>اذهب</button>
-</div></form>
+    </div>
+</form>
 <script> 
 // Set the date we're counting down to
 var countDownDate = new Date("mar 1, 2025 00:00:00").getTime();
