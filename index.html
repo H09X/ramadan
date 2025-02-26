@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -13,7 +14,6 @@
 <title>❤️❤️❤️❤️❤️❤️</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   
-
 <style>
       body{
         background: #fff;
@@ -89,18 +89,25 @@ $(document).ready(function() {
         if (userName) {
             // Update all instances of the name
             $(".displayName").text(userName);
-            // Save to localStorage to persist across page refreshes
-            localStorage.setItem("userName", userName);
-            // Hide the form after submission
-            $(".enter-name").hide();
+            
+            // Use sessionStorage instead of localStorage
+            // This will only persist for the current browser session
+            sessionStorage.setItem("userName", userName);
+            
+            // Clear the input field for a new entry
+            $("#nameInput").val('');
+            $("#nameInput").attr("placeholder", "👉 تغيير الاسم هنا...");
+            
+            // Keep the form visible (no hiding)
         }
     });
 
-    // Check if we already have a saved name
-    var savedName = localStorage.getItem("userName");
+    // Check if we already have a saved name in the session
+    var savedName = sessionStorage.getItem("userName");
     if (savedName) {
         $(".displayName").text(savedName);
-        $(".enter-name").hide();
+        // Don't hide the form
+        $("#nameInput").attr("placeholder", "👉 تغيير الاسم هنا...");
     }
 });
 </script>
@@ -305,7 +312,6 @@ a.rope
 <span class="displayName">Mohammad</span> ❤️❤️❤️❤️❤️❤️ <span class="displayName">Mohammad</span>
 </h1>
         
-
 <img src="img/ar-wis.png" width="50%" height="9%" style="animation: tada 4s infinite;"/><br><br>
 <div style="font-size: 18px; font-weight: 800; color:red;">
 <p id="demo"></p>
@@ -351,7 +357,6 @@ a.rope
 
 😍<span id="show-name" style="color: red;" class="displayName">Mohammad</span>😍
 <br>
-
 
 <form id="nameForm" method="POST" action="javascript:void(0);">
 	<div class="enter-name">
